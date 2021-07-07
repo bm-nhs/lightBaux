@@ -1,0 +1,8 @@
+#imgGalImages { 
+    height: 20%; 
+    position: fixed; 
+    bottom:0%;
+    width:100%; 
+    background-color: #00000055; 
+    opacity: 1;
+}
