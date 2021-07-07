@@ -30,7 +30,7 @@ window.onload = function () {
 }
 
 
-function imgBox(self, altTexgt) {
+function light_box(self, altTexgt) {
   var namepicImgBox = typeof self === 'string' ? self : self.src
   vopaImgBox = 0
   var hwinImgBox = window.innerHeight
