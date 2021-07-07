@@ -6,16 +6,12 @@ let zIndexDvImgBox = 999
 let vopaImgBox, idpopupImgBox
 let gallarySelectedImage = 0
 
-
-
-
 class GallaryImage {
   
   constructor (imgUrl, imgAlt) {
     this.imgUrl = imgUrl
     this.altText = imgAlt
   }
-
 
   getImageUrl() {
     return this.imageURL
