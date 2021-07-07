@@ -5,6 +5,38 @@ var speedImgBox = 0.08
 var zIndexDvImgBox = 999
 var vopaImgBox, idpopupImgBox
 
+function gallaryImage() {
+    
+    let imageURL = []
+    let altText = []
+
+    this.addImage = function(imgUrl, imgAlt) {
+        imageURL.push(imgUrl, imgAlt)
+    }
+
+    this.imageURL = function() {
+        return this.imageURL
+    }
+
+    this.altText = function() {
+        return this.altText
+    }
+}
+
+function gallaryImages() {
+    let images = []
+
+    this.addImage = function (gallaryImage) {
+        images.push(gallaryImage)
+    }
+
+    this.returnImages = function() {
+        return images
+    }
+}
+
+
+
 window.onload = function () {
   var crtdvImgBox = document.createElement('div')
   var crtdvImgGal = document.createElement('div')
