@@ -8,9 +8,10 @@ let gallarySelectedImage = 0
 
 class GallaryImage {
   
-  constructor (imgUrl, imgAlt) {
+  constructor (imgUrl, imgAlt, index) {
     this.imgUrl = imgUrl
     this.altText = imgAlt
+    this.index = index
   }
 
   getImageUrl() {
@@ -31,24 +32,23 @@ class GallaryImages {
     this.imageArray = []
   }
   
-  addImage(gallaryImage) {
-    
+  //addImage add GallaryImage to imageArray 
+  addImage(gallaryImage) {    
     this.imageArray.push(gallaryImage)
-    console.log('added Image')
   }
 
-  Images() {
+  images() {
     return this.imageArray
   }
 }
 
 var lBauxImages = new GallaryImages()
-var image1 = new GallaryImage('url1', 'alt1')
-var image2 = new GallaryImage('url2', 'alt2')
-var image3 = new GallaryImage('url3', 'alt3')
-var image4 = new GallaryImage('url4', 'alt4')
-var image5 = new GallaryImage('url5', 'alt5')
-var image6 = new GallaryImage('url6', 'alt6')
+var image1 = new GallaryImage('https://i.picsum.photos/id/738/400/300.jpg?hmac=UVdKENBe3SgSVhGIl7yPz_ckfEOpymYEzF7NGCQjTlk', 'alt1')
+var image2 = new GallaryImage('https://i.picsum.photos/id/1003/400/300.jpg?hmac=ZZl-tJjPBSVtmWTzID6Mm2yqxh373qCf69n6IACLILw', 'alt2')
+var image3 = new GallaryImage('https://i.picsum.photos/id/716/400/300.jpg?hmac=0hSLXA6AjmF4lFIkds8ei7lK_EJoDU8QNPFFM1V9P9A', 'alt3')
+var image4 = new GallaryImage('https://i.picsum.photos/id/995/400/300.jpg?hmac=laYxVwsygK90NIJN-koAiPWnCONLTcmRSomzWhSQ_Fg', 'alt4')
+var image5 = new GallaryImage('https://i.picsum.photos/id/179/400/300.jpg?hmac=YgRvJy_ZR83p-Ue1IA150Tiz85Z0tSW7d8PydgIdo9Q', 'alt5')
+var image6 = new GallaryImage('https://i.picsum.photos/id/1013/400/300.jpg?hmac=lRgL2ctx0e-z0OUjnOcIMF4xuTuxwWYlfIajUkp4m3A', 'alt6')
 
 lBauxImages.addImage(image1)
 lBauxImages.addImage(image2)
@@ -59,18 +59,18 @@ lBauxImages.addImage(image6)
 
 
 window.onload = function () {
-  var crtdvImgBox = document.createElement('div')
-  var crtdvImgGal = document.createElement('div')
-  var ctrdvImages = document.createElement('div')
-  crtdvImgGal.id = 'imgGal'
-  crtdvImgBox.id = 'displayedZoomedImage'
-  ctrdvImages.id = 'imgGalImages'
+  var targetZoomedImage = document.createElement('div')
+  var imgGal = document.createElement('div')
+  var dvImages = document.createElement('div')
+  imgGal.id = 'imgGal'
+  targetZoomedImage.id = 'targetZoomedImage'
+  dvImages.id = 'imgGalImages'
   idpopupImgBox = document.getElementById('imgGal')
-  document.getElementsByTagName('body')[0].appendChild(crtdvImgGal)
+  document.getElementsByTagName('body')[0].appendChild(imgGal)
   idImgGal = document.getElementById('imgGal')
-  idImgGal.appendChild(crtdvImgBox)
-  idImgGal.appendChild(ctrdvImages)
-  idpopupImgBox = document.getElementById('displayedZoomedImage')
+  idImgGal.appendChild(targetZoomedImage)
+  idImgGal.appendChild(dvImages)
+  idpopupImgBox = document.getElementById('targetZoomedImage')
   idpopupImgBox.style.top = 0
   idpopupImgBox.style.left = 0
   idpopupImgBox.style.opacity = 0
@@ -101,7 +101,7 @@ function light_box(self, altText) {
   imgImgBox.onload = function () {
     himgImgBox = imgImgBox.height
     var wimgImgBox = imgImgBox.width
-    c = lBauxImages.Images()
+    c = lBauxImages.images()
     console.log(image3)
     for (let i = 0; i < c.length; i++) {
       text += c[i].imgUrl + "<br>";
