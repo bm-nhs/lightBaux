@@ -69,7 +69,7 @@ window.onload = function () {
   document.getElementsByTagName('body')[0].appendChild(imgGal)
   idImgGal = document.getElementById('imgGal')
   idImgGal.appendChild(targetZoomedImage)
-  idImgGal.appendChild(dvImages)
+  //idImgGal.appendChild(dvImages)
   idpopupImgBox = document.getElementById('targetZoomedImage')
   idpopupImgBox.style.top = 0
   idpopupImgBox.style.left = 0
