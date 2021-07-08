@@ -15,7 +15,7 @@ class GallaryImage {
   }
 
   getImageUrl() {
-    return this.imageURL
+    return this.imgUrl
   }
 
   getImageAlt() {
@@ -26,15 +26,15 @@ class GallaryImage {
 
 class GallaryImages {
   
-  imageArray = new Array()
+  imageArray = []
   
   constructor() {
     this.imageArray = []
   }
   
-  //addImage add GallaryImage to imageArray 
-  addImage(gallaryImage) {    
-    this.imageArray.push(gallaryImage)
+  //addImage add galleryImage to imageArray
+  addImage(galleryImage) {
+    this.imageArray.push(galleryImage)
   }
 
   images() {
@@ -42,13 +42,13 @@ class GallaryImages {
   }
 }
 
-var lBauxImages = new GallaryImages()
-var image1 = new GallaryImage('https://i.picsum.photos/id/738/400/300.jpg?hmac=UVdKENBe3SgSVhGIl7yPz_ckfEOpymYEzF7NGCQjTlk', 'alt1')
-var image2 = new GallaryImage('https://i.picsum.photos/id/1003/400/300.jpg?hmac=ZZl-tJjPBSVtmWTzID6Mm2yqxh373qCf69n6IACLILw', 'alt2')
-var image3 = new GallaryImage('https://i.picsum.photos/id/716/400/300.jpg?hmac=0hSLXA6AjmF4lFIkds8ei7lK_EJoDU8QNPFFM1V9P9A', 'alt3')
-var image4 = new GallaryImage('https://i.picsum.photos/id/995/400/300.jpg?hmac=laYxVwsygK90NIJN-koAiPWnCONLTcmRSomzWhSQ_Fg', 'alt4')
-var image5 = new GallaryImage('https://i.picsum.photos/id/179/400/300.jpg?hmac=YgRvJy_ZR83p-Ue1IA150Tiz85Z0tSW7d8PydgIdo9Q', 'alt5')
-var image6 = new GallaryImage('https://i.picsum.photos/id/1013/400/300.jpg?hmac=lRgL2ctx0e-z0OUjnOcIMF4xuTuxwWYlfIajUkp4m3A', 'alt6')
+let lBauxImages = new GallaryImages()
+let image1 = new GallaryImage('https://i.picsum.photos/id/738/400/300.jpg?hmac=UVdKENBe3SgSVhGIl7yPz_ckfEOpymYEzF7NGCQjTlk', 'alt1')
+let image2 = new GallaryImage('https://i.picsum.photos/id/1003/400/300.jpg?hmac=ZZl-tJjPBSVtmWTzID6Mm2yqxh373qCf69n6IACLILw', 'alt2')
+let image3 = new GallaryImage('https://i.picsum.photos/id/716/400/300.jpg?hmac=0hSLXA6AjmF4lFIkds8ei7lK_EJoDU8QNPFFM1V9P9A', 'alt3')
+let image4 = new GallaryImage('https://i.picsum.photos/id/995/400/300.jpg?hmac=laYxVwsygK90NIJN-koAiPWnCONLTcmRSomzWhSQ_Fg', 'alt4')
+let image5 = new GallaryImage('https://i.picsum.photos/id/179/400/300.jpg?hmac=YgRvJy_ZR83p-Ue1IA150Tiz85Z0tSW7d8PydgIdo9Q', 'alt5')
+let image6 = new GallaryImage('https://i.picsum.photos/id/1013/400/300.jpg?hmac=lRgL2ctx0e-z0OUjnOcIMF4xuTuxwWYlfIajUkp4m3A', 'alt6')
 
 lBauxImages.addImage(image1)
 lBauxImages.addImage(image2)
@@ -59,17 +59,17 @@ lBauxImages.addImage(image6)
 
 
 window.onload = function () {
-  var targetZoomedImage = document.createElement('div')
-  var imgGal = document.createElement('div')
-  var dvImages = document.createElement('div')
+  let targetZoomedImage = document.createElement('div')
+  let imgGal = document.createElement('div')
+  let dvImages = document.createElement('div')
   imgGal.id = 'imgGal'
   targetZoomedImage.id = 'targetZoomedImage'
   dvImages.id = 'imgGalImages'
   idpopupImgBox = document.getElementById('imgGal')
   document.getElementsByTagName('body')[0].appendChild(imgGal)
-  idImgGal = document.getElementById('imgGal')
+  let idImgGal = document.getElementById('imgGal')
   idImgGal.appendChild(targetZoomedImage)
-  //idImgGal.appendChild(dvImages)
+  idImgGal.appendChild(dvImages)
   idpopupImgBox = document.getElementById('targetZoomedImage')
   idpopupImgBox.style.top = 0
   idpopupImgBox.style.left = 0
@@ -89,19 +89,19 @@ window.onload = function () {
 
 
 function light_box(self, altText) {
-  var namepicImgBox = typeof self === 'string' ? self : self.src
+  let namepicImgBox = typeof self === 'string' ? self : self.src
   vopaImgBox = 0
-  var hwinImgBox = window.innerHeight
-  var wwinImgBox = window.innerWidth
-  var himgImgBox, padtopImgBox, idfadeinImgBox
-  var imgImgBox = new Image()
-  var text = String()
+  let hwinImgBox = window.innerHeight
+  let wwinImgBox = window.innerWidth
+  let himgImgBox, padtopImgBox, idFadeInImgBox
+  let imgImgBox = new Image()
+  let text = String()
   imgImgBox.src = namepicImgBox
   imgImgBox.title = altText
   imgImgBox.onload = function () {
     himgImgBox = imgImgBox.height
-    var wimgImgBox = imgImgBox.width
-    c = lBauxImages.images()
+    let wimgImgBox = imgImgBox.width
+    let c = lBauxImages.images()
     console.log(image3)
     for (let i = 0; i < c.length; i++) {
       text += c[i].imgUrl + "<br>";
@@ -129,13 +129,13 @@ function light_box(self, altText) {
   }
 
   if (useFadeInoutImgBox === 'yes') {
-    idfadeinImgBox = setInterval(function () {
+    idFadeInImgBox = setInterval(function () {
       if (vopaImgBox <= 1.1) {
         idpopupImgBox.style.opacity = vopaImgBox
         vopaImgBox += speedImgBox
       } else {
         idpopupImgBox.style.opacity = 1
-        clearInterval(idfadeinImgBox)
+        clearInterval(idFadeInImgBox)
       }
     }, 10)
   } else {
@@ -144,13 +144,13 @@ function light_box(self, altText) {
 
   idpopupImgBox.onclick = function () {
     if (useFadeInoutImgBox === 'yes') {
-      var idfadeoutImgBox = setInterval(function () {
+      let idFadeOutImgBox = setInterval(function () {
         if (vopaImgBox >= 0) {
           idpopupImgBox.style.opacity = vopaImgBox
           vopaImgBox -= speedImgBox
         } else {
           idpopupImgBox.style.opacity = 0
-          clearInterval(idfadeoutImgBox)
+          clearInterval(idFadeOutImgBox)
           idpopupImgBox.style.display = 'none'
           idpopupImgBox.innerHTML = ''
           document.body.style.overflow = 'visible'
